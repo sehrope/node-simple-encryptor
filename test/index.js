@@ -70,7 +70,7 @@ describe('An encryptor with the defaults', function() {
 describe('An encryptor with HMACs disabled', function() {
   var opts = {
     key: testKey,
-    verifyHmac: false
+    hmac: false
   }
   var encryptor = require('../index')(opts);
   testEncryptor(encryptor);

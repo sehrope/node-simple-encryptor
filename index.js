@@ -7,12 +7,12 @@ module.exports = function(opts) {
   if( typeof(opts) == 'string' ) {
     opts = {
       key: opts,
-      verifyHmac: true,
+      hmac: true,
       debug: false
     };
   }
   var key = opts.key;
-  var verifyHmac = opts.verifyHmac;
+  var verifyHmac = opts.hmac;
   var debug = opts.debug;
 
   if( !key || typeof(key) != 'string' ) {

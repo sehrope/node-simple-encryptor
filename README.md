@@ -67,7 +67,7 @@ Example:
 Alternatively you can specify the string key and other options as a hash. The following properties are supported:
 
 * `key` - the string key to derive the crypto key from. Specifically the crypto key will be derived as the SHA-256 hash of this key. This must be specified, there is no default.
-* `verifyHmac` - whether or not to calculate the HMAC of the encrypted text and add that to the result. Additionally, if enabled this will verify the HMAC prior to decrypting. Adding HMACs will add 64-bytes to the result of each encryption (32-byte HMAC stored as hex). By default this is true.
+* `hmac` - whether or not to calculate the HMAC of the encrypted text and add that to the result. Additionally, if enabled this will verify the HMAC prior to decrypting. Adding HMACs will add 64-bytes to the result of each encryption (32-byte HMAC stored as hex). By default this is true.
 * `debug` - whether to log errors decrypting, by default this is false.
 
 Example:
@@ -75,7 +75,7 @@ Example:
     // Don't hard code keys! They should be in environment variables!
     var encryptor = require('simple-encryptor')({
       key: 'my secret key',
-      verifyHmac: false,
+      hmac: false,
       debug: true
     });
 
