@@ -1,4 +1,5 @@
 var crypto = require('crypto');
+var scmp = require('scmp');
 
 // Arbitrary min length, nothing should shorter than this:
 var MIN_KEY_LENGHTH = 16;
@@ -86,7 +87,7 @@ module.exports = function(opts) {
         cipherText = cipherText.substring(64);
         // Calculate the actual HMAC of the message:
         var actualHmac = hmac(cipherText);
-        if( actualHmac != expectedHmac ) {
+        if( !scmp(actualHmac, expectedHmac) ) {
           throw new Error('HMAC does not match');
         }
       }

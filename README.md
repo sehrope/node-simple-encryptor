@@ -103,7 +103,7 @@ If you're on a *nix system then the easiest way to generate a random string for 
     $ echo "$(< /dev/urandom tr -dc A-Za-z0-9 | head -c 32)"
 
 # Dependencies
-None.
+[scmp](https://www.npmjs.org/package/scmp) for constant-time string comparison.
 
 # License
 This plugin is released under the MIT license. See the file [LICENSE](LICENSE).
