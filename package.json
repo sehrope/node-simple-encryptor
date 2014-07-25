@@ -1,6 +1,6 @@
 {
   "name": "simple-encryptor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simplified encryption/decryption for node.js",
   "main": "index.js",
   "scripts": {
