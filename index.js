@@ -75,6 +75,9 @@ module.exports = function(opts) {
   // NOTE: It's possible that the data decrypted is null (since it's valid input for encrypt(...)).
   //       It's up to the caller to decide if the result is valid.
   function decrypt(cipherText) {
+    if( !cipherText ) {
+      return null;
+    }
     try {
       if( verifyHmac ) {
         // Extract the HMAC from the start of the message:
