@@ -35,6 +35,21 @@ To generate an HMAC:
 
     var myHmac = encryptor.hmac('testing');
 
+Encrypt/decrypt an object (not just a string!):
+
+    // nested object:
+    var obj = {
+      foo: {
+        bar: [1, "baz"]
+      }
+    };
+    var objEnc = encryptor.encrypt(obj);
+    // Should print gibberish:
+    console.log('obj encrypted: %s', objEnc);
+    var objDec = encryptor.decrypt(objEnc);
+    // Should print: {"foo":{"bar":[1,"baz"]}}
+    console.log('obj decrypted: %j', objDec);
+
 # Features
 
 * Encrypt arbitrary objects, not just strings (objects are converted to/from JSON)
