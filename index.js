@@ -2,7 +2,7 @@ var crypto = require('crypto');
 var scmp = require('scmp');
 
 // Arbitrary min length, nothing should shorter than this:
-var MIN_KEY_LENGHTH = 16;
+var MIN_KEY_LENGTH = 16;
 
 module.exports = function(opts) {
   if( typeof(opts) == 'string' ) {
@@ -19,8 +19,8 @@ module.exports = function(opts) {
   if( !key || typeof(key) != 'string' ) {
     throw new Error('a string key must be specified');
   }
-  if( key.length < MIN_KEY_LENGHTH ) {
-   throw new Error('key must be at least ' + MIN_KEY_LENGHTH + ' characters long'); 
+  if( key.length < MIN_KEY_LENGTH ) {
+   throw new Error('key must be at least ' + MIN_KEY_LENGTH + ' characters long');
   }
 
   // Use SHA-256 to derive a 32-byte key from the specified string.
