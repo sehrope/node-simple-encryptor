@@ -6,49 +6,61 @@ A simple encryptor/decryptor for Node.js.
 
 Add it to your node.js project via:
 
-    npm install simple-encryptor --save
+```sh
+npm install simple-encryptor --save
+```
 
 # Usage
 First create an encryptor:
 
-    // Specify a string key:    
-    // Don't do this though, your keys should most likely be stored in env variables
-    // and accessed via process.env.MY_SECRET_KEY
-    var key = 'real secret keys should be long and random';
+```js
+// Specify a string key:    
+// Don't do this though, your keys should most likely be stored in env variables
+// and accessed via process.env.MY_SECRET_KEY
+var key = 'real secret keys should be long and random';
 
-    // Create an encryptor:
-    var encryptor = require('simple-encryptor')(key);
+// Create an encryptor:
+var encryptor = require('simple-encryptor')(key);
+```
 
 To encrypt something:
 
-    var encrypted = encryptor.encrypt('testing');
-    // Should print gibberish:
-    console.log('encrypted: %s', encrypted);
+```js
+var encrypted = encryptor.encrypt('testing');
+// Should print gibberish:
+console.log('encrypted: %s', encrypted);
+```
 
 To decrypt it:
 
-    var decrypted = encryptor.decrypt(encrypted);
-    // Should print 'testing'
-    console.log('decrypted: %s', decrypted);
+```js
+var decrypted = encryptor.decrypt(encrypted);
+// Should print 'testing'
+console.log('decrypted: %s', decrypted);
+```
 
 To generate an HMAC:
 
-    var myHmac = encryptor.hmac('testing');
+```js
+var myHmac = encryptor.hmac('testing');
+```
 
 Encrypt/decrypt an object (not just a string!):
 
-    // nested object:
-    var obj = {
-      foo: {
-        bar: [1, "baz"]
-      }
-    };
-    var objEnc = encryptor.encrypt(obj);
-    // Should print gibberish:
-    console.log('obj encrypted: %s', objEnc);
-    var objDec = encryptor.decrypt(objEnc);
-    // Should print: {"foo":{"bar":[1,"baz"]}}
-    console.log('obj decrypted: %j', objDec);
+```js
+// nested object:
+var obj = {
+  foo: {
+    bar: [1, "baz"]
+  }
+};
+var objEnc = encryptor.encrypt(obj);
+// Should print gibberish:
+console.log('obj encrypted: %s', objEnc);
+var objDec = encryptor.decrypt(objEnc);
+// Should print: {"foo":{"bar":[1,"baz"]}}
+console.log('obj decrypted: %j', objDec);
+```
 
 # Features
 
@@ -75,8 +87,10 @@ If the first parameter is a string then it will be used as the key and the rest 
 
 Example:
 
-    // Don't hard code keys! They should be in environment variables!
-    var encryptor = require('simple-encryptor')('my secret key');
+```js
+// Don't hard code keys! They should be in environment variables!
+var encryptor = require('simple-encryptor')('my secret key');
+```
 
 ## Options hash - `encryptor(opts)`
 Alternatively you can specify the string key and other options as a hash. The following properties are supported:
@@ -87,12 +101,14 @@ Alternatively you can specify the string key and other options as a hash. The fo
 
 Example:
 
-    // Don't hard code keys! They should be in environment variables!
-    var encryptor = require('simple-encryptor')({
-      key: 'my secret key',
-      hmac: false,
-      debug: true
-    });
+```js
+// Don't hard code keys! They should be in environment variables!
+var encryptor = require('simple-encryptor')({
+  key: 'my secret key',
+  hmac: false,
+  debug: true
+});
+```
 
 # Internals
 Interally this module uses the node.js crypto package. Specifically it uses the specified string key to derive a key via computing it's SHA-256 hash. Encryption is done via AES-256 with a unique IV (intialization vector) per call that is returned as part of the result.
@@ -100,7 +116,9 @@ Interally this module uses the node.js crypto package. Specifically it uses the 
 # Generating a key
 If you're on a *nix system then the easiest way to generate a random string for a crypto key is to use /dev/urandom. The following will print out 32 random characters of lower case letters, upper case letters, and numbers:
 
-    $ echo "$(< /dev/urandom tr -dc A-Za-z0-9 | head -c 32)"
+```sh
+$ echo "$(< /dev/urandom tr -dc A-Za-z0-9 | head -c 32)"
+```
 
 # Dependencies
 [scmp](https://www.npmjs.org/package/scmp) for constant-time string comparison.
