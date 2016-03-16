@@ -14,7 +14,7 @@ npm install simple-encryptor --save
 First create an encryptor:
 
 ```js
-// Specify a string key:    
+// Specify a string key:
 // Don't do this though, your keys should most likely be stored in env variables
 // and accessed via process.env.MY_SECRET_KEY
 var key = 'real secret keys should be long and random';
