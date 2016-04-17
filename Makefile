@@ -24,6 +24,7 @@ package: clean test
 	npm pack
 
 clean:
+	rm -rf node_modules
 	rm -f $(PACKAGE_NAME)*.tgz
 
 .PHONY: test clean
