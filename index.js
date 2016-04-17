@@ -15,6 +15,7 @@ module.exports = function(opts) {
   var key = opts.key;
   var verifyHmac = opts.hmac;
   var debug = opts.debug;
+  var reviver = opts.reviver;
 
   if( !key || typeof(key) != 'string' ) {
     throw new Error('a string key must be specified');
@@ -51,7 +52,7 @@ module.exports = function(opts) {
     var iv = crypto.randomBytes(16);
 
     // Make sure to use the 'iv' variant when creating the cipher object:
-    var cipher = crypto.createCipheriv('aes256', cryptoKey, iv);    
+    var cipher = crypto.createCipheriv('aes256', cryptoKey, iv);
 
     // Generate the encrypted json:
     var encryptedJson = cipher.update(json, 'utf8', 'base64') + cipher.final('base64');
@@ -103,7 +104,7 @@ module.exports = function(opts) {
       var json = decipher.update(encryptedJson, 'base64', 'utf8') + decipher.final('utf8');
 
       // Return the parsed object:
-      return JSON.parse(json);
+      return JSON.parse(json, reviver);
     } catch( e ) {
       // If we get an error log it and ignore it. Decrypting should never fail.
       if( debug ) {
