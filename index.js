@@ -21,7 +21,7 @@ module.exports = function(opts) {
     throw new Error('a string key must be specified');
   }
   if( key.length < MIN_KEY_LENGTH ) {
-   throw new Error('key must be at least ' + MIN_KEY_LENGTH + ' characters long');
+    throw new Error('key must be at least ' + MIN_KEY_LENGTH + ' characters long');
   }
   if( reviver !== undefined && reviver !== null && typeof(reviver) != 'function' ) {
     throw new Error('reviver must be a function');
