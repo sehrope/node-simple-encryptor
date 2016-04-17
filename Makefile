@@ -27,4 +27,4 @@ clean:
 	rm -rf node_modules
 	rm -f $(PACKAGE_NAME)*.tgz
 
-.PHONY: test clean
+.PHONY: all check build test test-unit jshint package clean
