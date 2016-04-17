@@ -97,6 +97,7 @@ Alternatively you can specify the string key and other options as a hash. The fo
 
 * `key` - the string key to derive the crypto key from. Specifically the crypto key will be derived as the SHA-256 hash of this key. This must be specified, there is no default.
 * `hmac` - whether or not to calculate the HMAC of the encrypted text and add that to the result. Additionally, if enabled this will verify the HMAC prior to decrypting. Adding HMACs will add 64-bytes to the result of each encryption (32-byte HMAC stored as hex). By default this is true.
+* `reviver` - you can pass in a custom [reviver](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#Using_the_reviver_parameter) function that will be used during decryption. Useful, for example, when your payload contains a date object and you want it to be recreated during decryption.
 * `debug` - whether to log errors decrypting, by default this is false.
 
 Example:
