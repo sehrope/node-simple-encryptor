@@ -2,6 +2,10 @@
 
 A simple encryptor/decryptor for Node.js.
 
+[![NPM](https://nodei.co/npm/simple-encryptor.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/simple-encryptor/)
+
+[![Build Status](https://travis-ci.org/sehrope/node-simple-encryptor.svg?branch=master)](https://travis-ci.org/sehrope/node-simple-encryptor)
+
 # Installation
 
 Add it to your node.js project via:
