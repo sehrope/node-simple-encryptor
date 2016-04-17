@@ -1,0 +1,12 @@
+language: node_js
+
+script:
+  - make clean build test
+
+matrix:
+  include:
+    - node_js: "stable"
+    - node_js: "0.10"
+    - node_js: "0.12"
+    - node_js: "4"
+    - node_js: "5"
