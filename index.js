@@ -23,6 +23,9 @@ module.exports = function(opts) {
   if( key.length < MIN_KEY_LENGTH ) {
    throw new Error('key must be at least ' + MIN_KEY_LENGTH + ' characters long');
   }
+  if( reviver !== undefined && reviver !== null && typeof(reviver) != 'function' ) {
+    throw new Error('reviver must be a function');
+  }
 
   // Use SHA-256 to derive a 32-byte key from the specified string.
   // NOTE: We could alternatively do some kind of key stretching here.

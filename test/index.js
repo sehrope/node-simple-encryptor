@@ -102,4 +102,10 @@ describe('An encryptor with custom reviver', function() {
     var decrypted = encryptor.decrypt(encrypted);
     assert.equal(JSON.stringify(decrypted), JSON.stringify(obj));
   });
+
+  it('should throw an error if the reviver is not a function', function() {
+    assert.throws(function() {
+      var encryptor = require('../index')({key: testKey, reviver: 'not-a-function'});
+    });
+  });
 });
