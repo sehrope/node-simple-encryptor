@@ -91,7 +91,7 @@ module.exports = function(opts) {
         cipherText = cipherText.substring(64);
         // Calculate the actual HMAC of the message:
         var actualHmac = hmac(cipherText);
-        if( !scmp(actualHmac, expectedHmac) ) {
+        if( !scmp(new Buffer(actualHmac), new Buffer(expectedHmac)) ) {
           throw new Error('HMAC does not match');
         }
       }
