@@ -1,4 +1,4 @@
-interface SimpleEncryptor {
+export interface SimpleEncryptor {
     /**
      *  Encrypts an arbitrary object using the derived cryptoKey and retursn the result as text.
      *  The object is first serialized to JSON (via JSON.stringify) and the result is encrypted.
@@ -18,7 +18,7 @@ interface SimpleEncryptor {
     hmac(text: string, encoding?: string): string
 }
 
-interface SimpleEncryptorOptions {
+export interface SimpleEncryptorOptions {
     key: string;
     hmac: boolean;
     debug: boolean;
