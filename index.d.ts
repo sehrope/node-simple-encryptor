@@ -27,4 +27,4 @@ export interface SimpleEncryptorOptions {
 
 declare function encryptorCreator(opts: SimpleEncryptorOptions): SimpleEncryptor;
 declare function encryptorCreator(key: string): SimpleEncryptor;
-export = encryptorCreator;
+export default encryptorCreator;
