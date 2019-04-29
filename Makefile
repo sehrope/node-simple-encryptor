@@ -1,5 +1,4 @@
 MOCHA_OPTS= --check-leaks
-REPORTER = dot
 VERSION = $(shell node -e 'console.log(require("./package.json").version)')
 PACKAGE_NAME = $(shell node -e 'console.log(require("./package.json").name)')
 
@@ -14,7 +13,6 @@ test: jshint test-unit
 
 test-unit:
 	@NODE_ENV=test ./node_modules/.bin/mocha \
-	  --reporter $(REPORTER) \
 	  $(MOCHA_OPTS)
 
 jshint:
