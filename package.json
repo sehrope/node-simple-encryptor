@@ -2,6 +2,9 @@
   "name": "simple-encryptor",
   "version": "2.0.0",
   "description": "Simplified encryption/decryption for node.js",
+  "engines": {
+    "node": ">= 4.5.0"
+  },
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {

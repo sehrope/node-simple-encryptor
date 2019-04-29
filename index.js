@@ -97,7 +97,7 @@ module.exports = function(opts) {
       }
 
       // Extract the IV from the beginning of the message:
-      var iv = new Buffer(cipherText.substring(0,32), 'hex');
+      var iv = Buffer.from(cipherText.substring(0,32), 'hex');
       // The remaining text is the encrypted JSON:
       var encryptedJson = cipherText.substring(32);
 
