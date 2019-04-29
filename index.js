@@ -55,7 +55,7 @@ module.exports = function(opts) {
     var iv = crypto.randomBytes(16);
 
     // Make sure to use the 'iv' variant when creating the cipher object:
-    var cipher = crypto.createCipheriv('aes256', cryptoKey, iv);
+    var cipher = crypto.createCipheriv('aes-256-cbc', cryptoKey, iv);
 
     // Generate the encrypted json:
     var encryptedJson = cipher.update(json, 'utf8', 'base64') + cipher.final('base64');
@@ -102,7 +102,7 @@ module.exports = function(opts) {
       var encryptedJson = cipherText.substring(32);
 
       // Make sure to use the 'iv' variant when creating the decipher object:
-      var decipher = crypto.createDecipheriv('aes256', cryptoKey, iv);
+      var decipher = crypto.createDecipheriv('aes-256-cbc', cryptoKey, iv);
       // Decrypt the JSON:
       var json = decipher.update(encryptedJson, 'base64', 'utf8') + decipher.final('utf8');
 
