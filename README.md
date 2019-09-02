@@ -70,7 +70,7 @@ console.log('obj decrypted: %j', objDec);
 
 * Encrypt arbitrary objects, not just strings (objects are converted to/from JSON)
 * Unique IV per call so no two calls should return the same result for the same input
-* Defaults to encrypt-then-mac with AES-256 and SHA-256 HMAC
+* Defaults to encrypt-then-mac with AES-256-CBC and SHA-256 HMAC
 * Optionally disable HMACs for shorter results
 * No complicated options
 * Defaults to rejecting short keys (min length is 16)
