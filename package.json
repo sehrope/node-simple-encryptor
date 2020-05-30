@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "Simplified encryption/decryption for node.js",
   "engines": {
-    "node": ">= 4.5.0"
+    "node": ">= 10"
   },
   "main": "index.js",
   "types": "index.d.ts",
