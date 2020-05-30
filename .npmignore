@@ -1,3 +1,4 @@
 test
 Makefile
 .travis.yml
+index.test-d.ts
