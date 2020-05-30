@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [4.0.0] - 2020-05-30
+### Breaking Changes
+- Changed to export a non-default function createEncryptor(...) and update the typings to match.
+
 ## [3.0.0] - 2019-04-29
 ### Changed
 - Added engines with min version of node v4.5.0
