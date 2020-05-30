@@ -4,7 +4,7 @@ var scmp = require('scmp');
 // Arbitrary min length, nothing should shorter than this:
 var MIN_KEY_LENGTH = 16;
 
-module.exports = function(opts) {
+function createEncryptor(opts) {
   if( typeof(opts) == 'string' ) {
     opts = {
       key: opts,
@@ -122,4 +122,7 @@ module.exports = function(opts) {
     decrypt: decrypt,
     hmac: hmac
   };
-};
+}
+
+module.exports = createEncryptor;
+module.exports.createEncryptor = createEncryptor;

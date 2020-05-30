@@ -29,7 +29,8 @@
   "homepage": "https://github.com/sehrope/node-simple-encryptor",
   "devDependencies": {
     "jshint": "latest",
-    "mocha": "^5"
+    "mocha": "^5",
+    "tsd": "^0.11.0"
   },
   "dependencies": {
     "scmp": "2.0.0"

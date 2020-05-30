@@ -25,6 +25,5 @@ export interface SimpleEncryptorOptions {
     reviver?(key: any, value: any): any;
 }
 
-declare function encryptorCreator(opts: SimpleEncryptorOptions): SimpleEncryptor;
-declare function encryptorCreator(key: string): SimpleEncryptor;
-export default encryptorCreator;
+export function createEncryptor(opts: SimpleEncryptorOptions): SimpleEncryptor;
+export function createEncryptor(key: string): SimpleEncryptor;
